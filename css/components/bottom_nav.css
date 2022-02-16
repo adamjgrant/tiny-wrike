@@ -1,0 +1,100 @@
+[data-component~="bottom_nav"] {
+    height: var(--bottom-nav-height);
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transition: opacity 1s;
+    z-index: 2;
+    background: white;
+    border-top: 1px solid #eee;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+[data-component~="bottom_nav"] * {
+    transition: all 0.20s;
+}
+
+[data-component~="bottom_nav"] #undo {
+    transform: rotate(180deg);
+}
+
+[data-component~="bottom_nav"].hide {
+    pointer-events: none;
+    opacity: 0;
+}
+
+[data-component~="bottom_nav"] .spacer {
+    width: 15px;
+    height: 15px;
+}
+
+[data-component~="bottom_nav"].disabled {
+    pointer-events: none;
+}
+
+[data-component~="bottom_nav"] button {
+    padding: 10px 15px;
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    margin: 0 3px;
+    color: #333;
+    cursor: pointer;
+}
+
+[data-component~="bottom_nav"] button:hover {
+    background: #EEE;
+}
+
+[data-component~="bottom_nav"] button#approve,
+[data-component~="bottom_nav"] button#approve-and-go-back {
+    color: green;
+}
+
+[data-component~="bottom_nav"] button#reject {
+    border: 1px solid crimson;
+    color: crimson;
+}
+
+[data-component~="bottom_nav"] button#reject-and-go-back {
+    background: crimson;
+    color: white;
+}
+
+[data-component~="bottom_nav"] button#reject:hover {
+    background: crimson;
+    color: white;
+}
+
+[data-component~="bottom_nav"].disabled button#reject,
+[data-component~="bottom_nav"].disabled button#reject-and-go-back,
+[data-component~="bottom_nav"].disabled button#approve-and-go-back,
+[data-component~="bottom_nav"].disabled button,
+[data-component~="bottom_nav"].disabled button#approve {
+    color: #BBB;
+    background: transparent;
+    border-color: transparent;
+}
+
+@media (prefers-color-scheme: dark) {
+    [data-component~="bottom_nav"] {
+        background: black;
+        border-top-color: #333;
+    }
+    [data-component~="bottom_nav"] button {
+        color: white;
+    }
+    [data-component~="bottom_nav"] button:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    [data-component~="bottom_nav"].disabled {
+        background: #333;
+    }
+}

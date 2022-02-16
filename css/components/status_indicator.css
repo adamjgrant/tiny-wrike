@@ -1,0 +1,29 @@
+[data-component="status_indicator"] {
+    position: absolute;
+    top: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 3px;
+    background-color: transparent;
+    transition: background-color 0.5s;
+    z-index: 5;
+}
+
+[data-component="status_indicator"].yellow {
+    background: gold;
+}
+
+[data-component="status_indicator"].green {
+    background: chartreuse;
+}
+
+[data-component="status_indicator"].red {
+    background: red;
+}
+
+@media (prefers-color-scheme: dark) {
+    [data-component="status_indicator"] {
+        background-color: transparent;
+    }
+}

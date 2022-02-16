@@ -1,0 +1,228 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="https://adamjgrant.github.io/simple-airtable-approver/">
+    <meta property="og:image" content="">
+
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <meta name="theme-color" content="#fafafa">
+    <script>
+        const components = [
+            "account",
+            "bottom_nav",
+            "card",
+            "choice",
+            "curtain",
+            "embedded_tweet",
+            "metadata",
+            "row_tweet",
+            "status_indicator",
+            "tabs",
+            "top_nav",
+            "viewport"
+        ];
+    </script>
+    <script src="js/components.js"></script>
+</head>
+
+<body>
+    <div data-component="viewport">
+        <div data-component="curtain">
+            <div class="text">
+                <a href="./"><img src="img/wrike.png"></a>
+                <h1>Loading...</h1>
+            </div>
+        </div>
+
+        <nav data-component="top_nav">
+            <ul>
+                <li>
+                    <a href="./"><img src="img/wrike.png"> Tiny Wrike</a>
+                </li>
+
+                <li data-component="account">
+                    <i class="icofont-not-allowed"></i><span id="score-rejected">0</span> <i class="icofont-hour-glass"></i><span id="score-in-review">0</span> <i class="icofont-check"></i><span id="score-approved">0</span>
+                </li>
+            </ul>
+
+            <ul>
+                <li>
+                    <a id="tinder" href="#"><i class="icofont-card"></i></a>
+                </li>
+
+                <li>
+                    <a id="timeline" href="#"><i class="icofont-home"></i></a>
+                </li>
+
+            </ul>
+        </nav>
+
+        <nav data-component="tabs">
+            <template id="tab-template-all">
+                <li><a href="#tab-all" class="active">All</a></li>
+            </template>
+            <template id="tab-template">
+                <li>
+                    <a href="#tab-template">@<span class="handle">tab</span></a>
+                </li>
+            </template>
+            <ul>
+            </ul>
+            <div data-component="status_indicator"></div>
+        </nav>
+
+        <div class="view-tinder">
+            <div data-component="card">
+                <div class="twitter-box tweet-minus-2">
+                    <a class="link-to-tweet" href=""><img src="img/twitter.jpg" class="profile"></a>
+                    <article>
+                        <p id="tweet-minus-2">This is the tweet</p>
+                        <div data-component="embedded_tweet" class="hide"></div>
+                    </article>
+                </div>
+                <div class="twitter-box tweet-minus-1">
+                    <a class="link-to-tweet" href=""><img src="img/twitter.jpg" class="profile"></a>
+                    <article>
+                        <p id="tweet-minus-1">This is the tweet</p>
+                        <div data-component="embedded_tweet" class="hide"></div>
+                    </article>
+                </div>
+                <div class="twitter-box">
+                    <a class="link-to-tweet" href=""><img src="img/twitter.jpg" class="profile"></a>
+                    <article>
+                        <h1>They say</h1>
+                        <p id="tweet">This is the tweet</p>
+                        <div data-component="embedded_tweet" class="hide"></div>
+                    </article>
+                </div>
+                <div class="twitter-box response-edit-hidden">
+                    <a id="select-all"><img src="" class="profile" id="response-thumbnail"></a>
+                    <article>
+                        <h1>Responding with <small><a id="disclose-response-edit" href="#">Toggle Edit</a></small></h1>
+                        <textarea id="response">This is the response</textarea>
+                    </article>
+                </div>
+                <div class="choices">
+                    <div data-component="choice" class="choice-1 selected">
+                        <p>(Not implemented yet)</p>
+                    </div>
+                    <div data-component="choice" class="choice-2">
+                        <p>(Not implemented yet)</p>
+                    </div>
+                    <div data-component="choice" class="choice-3">
+                        <p>(Not implemented yet)</p>
+                    </div>
+                    <div data-component="choice" class="choice-autofill">
+                        <textarea id="choice-response" placeholder="Type a custom response"></textarea>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a class="choice-row" data-choice="lol" href="#">🤣 LOL</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="nice" href="#">👍 Nice</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="agreed" href="#">👏 Agree</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="oh" href="#">🧐 Oh?</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="sorry" href="#">😢 Sorry</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="facepalm" href="#">🤦‍♂️ smh</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="wtf" href="#">😳 WTF</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="no" href="#">👎 No</a>
+                                </li>
+                                <li>
+                                    <a class="choice-row" data-choice="yes" href="#">👍 Yes</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div data-component="bottom_nav" class="hide">
+                <button id="set-localstorage-values"><i class="icofont-settings-alt"></i>️</button>
+
+                <div class="spacer"></div>
+
+                <button id="undo"><i class="icofont-ui-play"></i></button>
+                <button id="approve">
+                    <i class="icofont-ui-play"></i>
+                </button>
+                <button id="reject">
+                    <i class="icofont-ui-play"></i>
+                </button>
+
+                <div class="spacer"></div>
+
+                <button id="approve-and-go-back">
+                    <i class="icofont-check"></i>
+                </button>
+                <button id="reject-and-go-back">
+                    <i class="icofont-not-allowed"></i>
+                </button>
+            </div>
+        </div>
+
+        <ul class="view-timeline">
+            <template id="timeline-row">
+              <li>
+                <a data-component="row_tweet">
+                  <div class="original">
+                    <img src="img/twitter.jpg" class="profile">
+                    <article>
+                        <h1>Author</h1>
+                        <p class="tweet">This is the tweet</p>
+                        <div class="tiny-response">
+                            <img src="" class="profile">
+                            <p></p>
+                        </div>
+                    </article>
+                    <button class="reject">
+                      <i class="icofont-delete-alt"></i>
+                    </button>
+                  </div>
+                </a>
+            </li>
+          </template>
+        </ul>
+
+        <footer data-component="metadata">
+            <p id="badge">Job 98.2%</p>
+        </footer>
+    </div>
+    <script src="js/common.js"></script>
+    <script src="js/vendor/airtable.js"></script>
+    <script src="js/vendor/mozart.js"></script>
+    <script id="main_script" src="js/main.js"></script>
+    <link rel="stylesheet" href="css/icofont.min.css">
+    <script>
+        const module = {};
+    </script>
+    <script src="js/vendor/permute.js"></script>
+</body>
+
+</html>

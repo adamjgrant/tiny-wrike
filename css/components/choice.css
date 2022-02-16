@@ -1,0 +1,117 @@
+[data-component~="choice"] {
+    margin: 5px 0;
+    margin-bottom: 15px;
+    position: relative;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    cursor: pointer;
+    margin-left: -2px;
+    padding-left: 26px;
+    color: #888;
+}
+
+[data-component~="choice"].hide {
+    display: none;
+}
+
+[data-component~="choice"] p {
+    margin: 0;
+    padding: 8px;
+    padding-right: 40px;
+}
+
+[data-component~="choice"]:after {
+    --bubble-height: 20px;
+    content: '';
+    display: block;
+    width: var(--bubble-height);
+    height: var(--bubble-height);
+    border-radius: 50%;
+    border: 1px solid var(--wrike-bar-color);
+    position: absolute;
+    top: 50%;
+    margin-top: calc(-1 * (var(--bubble-height) / 2));
+    right: 5px;
+}
+
+[data-component~="choice"].selected {
+    color: var(--wrike-black-text);
+}
+
+[data-component~="choice"].selected:after {
+    content: '✔';
+    color: var(--wrike-green-link);
+    font-weight: bold;
+    text-align: center;
+    font-size: 25px;
+    line-height: 0.6;
+}
+
+[data-component~="choice"] nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+[data-component~="choice"] nav ul li {
+    width: 33.33%;
+}
+
+[data-component~="choice"] nav ul a {
+    padding: 5px 7px;
+    margin: 0px 2px;
+    width: 100%;
+    margin-bottom: 2px;
+    display: block;
+    text-decoration: none;
+    font-size: var(--font-size);
+    color: var(--wrike-black-text);
+    border-radius: 5px;
+    border: 1px solid transparent;
+}
+
+[data-component~="choice"] nav ul a:hover {
+    border-color: var(--wrike-green-link);
+}
+
+[data-component~="choice"].selected #choice-response,
+[data-component~="choice"].selected nav {
+    border-color: var(--wrike-green-link);
+}
+
+[data-component~="choice"] #choice-response,
+[data-component~="choice"] nav {
+    border: 1px solid var(--wrike-bar-color);
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+[data-component~="choice"] #choice-response {
+    margin: 0;
+    outline: 0;
+    width: calc(100% - 50px);
+    height: 60px;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
+    box-sizing: border-box;
+    padding: 8px;
+    color: var(--wrike-black-text);
+    background: transparent;
+    border-bottom: 0px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+[data-component~="choice"] nav {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -4px;
+    border-top: 1px solid var(--wrike-bar-color);
+    padding-top: 8;
+}
+
+[data-component~="choice"] #choice-response:focus {
+    outline: 0;
+}
