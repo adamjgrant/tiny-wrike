@@ -1,4 +1,4 @@
-# simple-airtable-approver
+# Tiny Wrike
 
 ## Run server
 `make`
